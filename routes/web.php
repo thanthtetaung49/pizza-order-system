@@ -78,7 +78,7 @@ Route::middleware(['auth'])->group(function () {
         });
 
         // order list view
-        Route::prefix('products')->group(function() {
+        Route::prefix('products')->group(function () {
             Route::get('order/list/{orderCode}', [OrderListController::class, 'orderListInfo'])->name('products#info');
         });
 

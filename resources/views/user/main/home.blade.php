@@ -150,7 +150,7 @@
                 if (eventOption == 'asc') {
                     $.ajax({
                         type: "get",
-                        url: "http://127.0.0.1:8000/ajax/getData",
+                        url: "/ajax/getData",
                         data: {
                             'status': 'asc'
                         },
@@ -195,7 +195,7 @@
                 } else {
                     $.ajax({
                         type: "get",
-                        url: "http://127.0.0.1:8000/ajax/getData",
+                        url: "/ajax/getData",
                         data: {
                             'status': 'desc'
                         },

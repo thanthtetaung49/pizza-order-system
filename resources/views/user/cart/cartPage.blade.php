@@ -153,7 +153,7 @@
 
         $.ajax({
           type: "get",
-          url: "http://127.0.0.1:8000/ajax/order/clear",
+          url: "/ajax/order/clear",
           data: {
             "orderId": orderId
           },
@@ -188,13 +188,13 @@
 
           $.ajax({
             type: "get",
-            url: "http://127.0.0.1:8000/ajax/orderList",
+            url: "/ajax/orderList",
             data: data,
             dataType: "json",
             success: function(response) {
               console.log(response);
               if (response.status == "true") {
-                window.location.href = "http://127.0.0.1:8000/user/home";
+                window.location.href = "/user/home";
               }
             }
           });
@@ -208,7 +208,7 @@
 
         $.ajax({
           type: "get",
-          url: "http://127.0.0.1:8000/ajax/order",
+          url: "/ajax/order",
           data: order,
           dataType: "json",
         });
@@ -223,7 +223,7 @@
 
         $.ajax({
           type: "get",
-          url: "http://127.0.0.1:8000/ajax/all/clear",
+          url: "/ajax/all/clear",
         });
       });
 

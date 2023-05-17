@@ -45,7 +45,3 @@
     </div>
     <!-- END MAIN CONTENT-->
 @endsection
-
-@section('jsSourceScript')
-    <script type="text/javascript"></script>
-@endsection

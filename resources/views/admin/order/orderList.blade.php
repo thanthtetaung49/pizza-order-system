@@ -119,7 +119,7 @@
 
                 $.ajax({
                     type: "get",
-                    url: "http://127.0.0.1:8000/ajax/admin/order/changeStatus",
+                    url: "/ajax/admin/order/changeStatus",
                     data: {
                         "id": orderId,
                         "status": orderStatusValue
@@ -129,6 +129,8 @@
                         console.log(response);
                     }
                 });
+
+                location.reload();
             });
         });
     </script>
