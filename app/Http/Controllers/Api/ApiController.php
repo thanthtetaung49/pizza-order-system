@@ -75,7 +75,7 @@ class ApiController extends Controller
         return response()->json($category, 200);
     }
 
-    // delete categories (method 1)
+    // delete categories POST
     public function deleteCategories(Request $request)
     {
         $data = Category::where('id', $request->id)->first();
@@ -100,7 +100,7 @@ class ApiController extends Controller
         );
     }
 
-    // delete categories (method 2)
+    // delete categories GET
     public function delete($id)
     {
         $data = Category::where('id', $id)->first();
@@ -119,6 +119,60 @@ class ApiController extends Controller
             [
                 'status' => 'false',
                 'message' => 'delete unsuccess',
+            ],
+            200,
+        );
+    }
+
+    // detail category GET
+    public function category($id)
+    {
+        $category = Category::where('id', $id)->first();
+
+        if (isset($category)) {
+            return response()->json($category, 200);
+        }
+        return response()->json(
+            [
+                'status' => 'false',
+                'message' => 'error',
+            ],
+            500,
+        );
+    }
+
+    // detail category POST
+    public function categoryPost(Request $request)
+    {
+        $category = Category::where('id', $request->category_id)->first();
+
+        if (isset($category)) {
+            return response()->json(['status' => true, 'category' => $category], 200);
+        }
+        return response()->json(['status' => false, 'message' => 'error'], 500);
+    }
+
+    // update category GET
+    public function updateCategory(Request $request)
+    {
+        $category = Category::where('id', $request->category_id)->first();
+
+        if (isset($category)) {
+            Category::where('id', $request->category_id)->update([
+                'name' => $request->category_name,
+            ]);
+            return response()->json(
+                [
+                    'status' => true,
+                    'category' => Category::get(),
+                ],
+                200,
+            );
+        }
+        return response()->json(
+            [
+                'status' => false,
+                'message' => 'error',
             ],
             200,
         );

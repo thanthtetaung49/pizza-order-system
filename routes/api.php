@@ -36,7 +36,13 @@ Route::get('get/users', [ApiController::class, 'users']);
 // create categories
 Route::post('create/categories', [ApiController::class, 'createCategories']);
 
-// delete categories (method 1)
+// delete categories
 Route::post('delete/categories', [ApiController::class, 'deleteCategories']);
-// delete categories (method 2)
 Route::get('delete/categories/{id}', [ApiController::class, 'delete']);
+
+// detail category
+Route::get('get/category/{id}', [ApiController::class, 'category']);
+Route::post('get/category/method/post', [ApiController::class, 'categoryPost']);
+
+// update category
+Route::post('update/category', [ApiController::class, 'updateCategory']);
